@@ -1,0 +1,56 @@
+[alias]
+
+	# View abbreviated SHA, description, and history graph of the latest 20 commits.
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+	# View the current working tree status using the short format.
+	s = status -s
+
+	# List aliases.
+	aliases = config --get-regexp alias
+
+	# Show the user email for the current repository.
+	whoami = config user.email
+
+[apply]
+
+	# Detect whitespace errors when applying a patch.
+	whitespace = fix
+
+[branch]
+
+	# Show most recently changed branches first.
+	sort = -committerdate
+
+[color]
+
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = auto
+
+[merge]
+
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+
+[push]
+
+	# https://git-scm.com/docs/git-config#git-config-pushdefault
+	default = simple
+	# Make `git push` push relevant annotated tags when pushing branches out.
+	followTags = true
+
+[init]
+	defaultBranch = main
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[ghq]
+	user = ash-valley
+
+[user]
+	email = 42672817+ash-valley@users.noreply.github.com
+	name = ash-valley
