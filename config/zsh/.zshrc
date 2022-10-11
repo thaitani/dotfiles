@@ -63,7 +63,4 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     eval "$(starship init zsh)"
 fi
 
-### plugins ###
-zinit wait lucid null for \
-    atinit'source "$ZDOTDIR/.lazy.zshrc"' \
-    @'zdharma-continuum/null'
+source "$ZDOTDIR/.lazy.zshrc"
