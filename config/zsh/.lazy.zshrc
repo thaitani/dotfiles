@@ -7,6 +7,7 @@ alias rm='rm -i'
 __asdf_atload() {
     export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
     export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
+    source $ASDF_DIR/asdf.sh
 }
 zinit wait lucid light-mode for \
     atpull'asdf plugin update --all' \
