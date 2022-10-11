@@ -46,64 +46,24 @@ setopt print_eight_bit
 # ビープ音を鳴らさない
 setopt no_beep
 
-### asdf ###
-__asdf_atload() {
-    export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
-    export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
+zshaddhistory() {
+    local line="${1%%$'\n'}"
+    [[ ! "$line" =~ "^(cd|jj?|lazygit|la|ll|ls|rm|rmdir)($| )" ]]
 }
-zinit wait lucid light-mode for \
-    atpull'asdf plugin update --all' \
-    atload'__asdf_atload' \
-    @'asdf-vm/asdf'
 
-### yq ###
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    mv'yq* -> yq' \
-    atclone'./yq shell-completion zsh >_yq' atpull'%atclone' \
-    @'mikefarah/yq'
-
-### bat ###
-__bat_atload() {
-    alias less='bat'
-    # pagingを無効
-    alias cat='bat --paging=never'
+### Git repo create ###
+ghcr() {
+    gh repo create $argv
+    ghq get $argv[1]
+    code $(ghq list --full-path -e $argv[1])
 }
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    pick'bat*/bat' \
-    atload'__bat_atload' \
-    @'sharkdp/bat'
 
-__lsd_atload() {
-    # ファイル→ディレクトの順でほぼ全て表示（.と..は除く）
-    alias ls='lsd -A --group-dirs=last'
-    # サイズが人に優しいリスト表示で、ディレクトリのサイズは中のファイルの合計を表示
-    alias ll='lsd -Ahl --total-size --group-dirs=last'
-    # ツリー表示
-    alias tree='lsd -A --tree --group-dirs=last'
-    # ツリー形式でファイル情報も表示
-    alias lr='lsd -Ahl --total-size --tree --group-dirs=last'
-}
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    pick'lsd*/lsd' \
-    atload'__lsd_atload' \
-    @'Peltoche/lsd'
+### starship(warpを除く) ###
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+    eval "$(starship init zsh)"
+fi
 
-### zsh plugins ###
-zinit for \
-    light-mode \
-  zsh-users/zsh-autosuggestions \
-  zsh-users/zsh-completions \
-  zdharma-continuum/fast-syntax-highlighting \
-  zdharma-continuum/history-search-multi-word \
-
-### completion styles ###
-zstyle ':completion:*:default' menu select=1
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-### Editor ###
-export EDITOR="vi"
-(( ${+commands[vim]} )) && EDITOR="vim"
-
-export GIT_EDITOR="$EDITOR"
-
-zpcompinit
+### plugins ###
+zinit wait lucid null for \
+    atinit'source "$ZDOTDIR/.lazy.zshrc"' \
+    @'zdharma-continuum/null'
