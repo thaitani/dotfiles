@@ -46,9 +46,10 @@ setopt print_eight_bit
 # ビープ音を鳴らさない
 setopt no_beep
 
+# history除外設定
 zshaddhistory() {
     local line="${1%%$'\n'}"
-    [[ ! "$line" =~ "^(cd|jj?|lazygit|la|ll|ls|rm|rmdir)($| )" ]]
+    [[ ! "$line" =~ "^(cd|jj?|lazygit|l[sal]|rm|rmdir)($| )" ]]
 }
 
 ### Git repo create ###
@@ -63,4 +64,7 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     eval "$(starship init zsh)"
 fi
 
-source "$ZDOTDIR/.lazy.zshrc"
+### plugins ###
+zinit wait lucid null for \
+    atinit'source "$ZDOTDIR/.lazy.zshrc"' \
+    @'zdharma-continuum/null'
