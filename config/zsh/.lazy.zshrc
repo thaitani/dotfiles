@@ -31,6 +31,7 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     atload'__bat_atload' \
     @'sharkdp/bat'
 
+### lsd ###
 __lsd_atload() {
     # ファイル→ディレクトの順でほぼ全て表示（.と..は除く）
     alias ls='lsd -A --group-dirs=last'
