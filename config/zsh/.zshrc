@@ -10,6 +10,7 @@ typeset -U path
 path=(
     "$PUB_CACHE/bin"(N-/)
     "$FVM_HOME/default/bin"(N-/)
+    "$NPM_DATA_DIR/bin"(N-/)
     "$path[@]"
 )
 
