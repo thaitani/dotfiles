@@ -14,6 +14,9 @@ zinit wait lucid light-mode for \
     atload'__asdf_atload' \
     @'asdf-vm/asdf'
 
+### direnv ###
+(( ${+commands[direnv]} )) && eval "$(direnv hook zsh)"
+
 ### yq ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
     mv'yq* -> yq' \
