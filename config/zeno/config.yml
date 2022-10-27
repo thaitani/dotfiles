@@ -1,0 +1,327 @@
+snippets:
+  ### cd ###
+  - name: --
+    keyword: --
+    snippet: cd -
+
+  - name: ..
+    keyword: ..
+    snippet: cd ..
+
+  - name: ...
+    keyword: ...
+    snippet: cd ../..
+
+  - name: ....
+    keyword: ....
+    snippet: cd ../../..
+
+  ### git ###
+  - name: g
+    keyword: g
+    snippet: git
+
+  # git add
+  - name: git aa
+    keyword: aa
+    snippet: add -vA
+    context:
+      lbuffer: ^git\s
+
+  - name: git r
+    keyword: r
+    snippet: reset
+    context:
+      lbuffer: ^git\s
+
+  # git branch
+  - name: git b
+    keyword: b
+    snippet: branch
+    context:
+      lbuffer: ^git\s
+
+  # git commit
+  - name: git c
+    keyword: c
+    snippet: commit
+    context:
+      lbuffer: ^git\s
+
+  - name: git cam
+    keyword: cam
+    snippet: commit --amend --no-edit
+    context:
+      lbuffer: ^git\s
+
+  - name: git cm
+    keyword: cm
+    snippet: commit -m '{{}}'
+    context:
+      lbuffer: ^git\s
+
+  - name: git C
+    keyword: C
+    snippet: cz
+    context:
+      lbuffer: ^git\s
+
+  # git cherry-pick
+  - name: git cp
+    keyword: cp
+    snippet: cherry-pick
+    context:
+      lbuffer: ^git\s
+
+  # git diff
+  - name: git st
+    keyword: st
+    snippet: diff --stat
+    context:
+      lbuffer: ^git\s
+
+  - name: git stats
+    keyword: stats
+    snippet: diff --stat --staged
+    context:
+      lbuffer: ^git\s
+
+  - name: git sts
+    keyword: sts
+    snippet: diff --stat --staged
+    context:
+      lbuffer: ^git\s
+
+  - name: git dfi
+    keyword: dfi
+    snippet: df --ignore-all-space
+    context:
+      lbuffer: ^git\s
+
+  - name: git dfs
+    keyword: dfs
+    snippet: df --staged
+    context:
+      lbuffer: ^git\s
+
+  - name: git dfsi
+    keyword: dfsi
+    snippet: df --staged --ignore-all-space
+    context:
+      lbuffer: ^git\s
+
+  # git fetch
+  - name: git f
+    keyword: f
+    snippet: fetch
+    context:
+      lbuffer: ^git\s
+
+  - name: git fu
+    keyword: fu
+    snippet: fetch upstream
+    context:
+      lbuffer: ^git\s
+
+  # git log
+  - name: git lg
+    keyword: lg
+    snippet: graph
+    context:
+      lbuffer: ^git\s
+
+  # git pull
+  - name: git pl
+    keyword: pl
+    snippet: pull
+    context:
+      lbuffer: ^git\s
+
+  # git pull all
+  - name: git pull all
+    keyword: pla
+    snippet: update-all
+    context:
+      lbuffer: ^git\s
+
+  # git push
+  - name: git ps
+    keyword: ps
+    snippet: push
+    context:
+      lbuffer: ^git\s
+
+  - name: git psu
+    keyword: psu
+    snippet: push -u origin HEAD
+    context:
+      lbuffer: ^git\s
+
+  - name: git pst
+    keyword: pst
+    snippet: push --tags
+    context:
+      lbuffer: ^git\s
+
+  - name: git push -f
+    keyword: -f
+    snippet: --force-with-lease
+    context:
+      lbuffer: ^git(\s+\S+)*\s+push\s
+
+  # git rev-parse
+  - name: git root
+    keyword: root
+    snippet: rev-parse --show-toplevel
+    context:
+      lbuffer: ^git\s
+
+  # git status
+  - name: git s
+    keyword: s
+    snippet: status
+    context:
+      lbuffer: ^git\s
+
+  - name: git ss
+    keyword: ss
+    snippet: status -s
+    context:
+      lbuffer: ^git\s
+
+  # git switch
+  - name: git sw
+    keyword: sw
+    snippet: switch
+    context:
+      lbuffer: ^git\s
+
+  # git tag
+  - name: git tags
+    keyword: tags
+    snippet: tag -l --sort=v:refname
+    context:
+      lbuffer: ^git\s
+
+  # git current branch name
+  - name: git B
+    keyword: B
+    snippet: git symbolic-ref --short HEAD
+    evaluate: true
+    context:
+      lbuffer: ^git\s
+
+  - name: git OB
+    keyword: OB
+    snippet: zsh -c "echo origin/$(git symbolic-ref --short HEAD)"
+    evaluate: true
+    context:
+      lbuffer: ^git\s
+
+  # git upstream
+  - name: git U
+    keyword: U
+    snippet: upstream
+    context:
+      lbuffer: ^git\s
+
+  ### docker ###
+  - name: dok
+    keyword: dok
+    snippet: docker
+
+  - name: docker c
+    keyword: c
+    snippet: compose
+    context:
+      lbuffer: ^docker\s
+
+  - name: docker pl
+    keyword: pl
+    snippet: pull
+    context:
+      lbuffer: ^docker\s
+
+  - name: docker ri
+    keyword: ri
+    snippet: run -it
+    context:
+      lbuffer: ^docker\s
+
+  - name: docker rrm
+    keyword: rrm
+    snippet: run --rm
+    context:
+      lbuffer: ^docker\s
+
+  - name: docker rrmi
+    keyword: rrmi
+    snippet: run --rm -it
+    context:
+      lbuffer: ^docker\s
+
+  ### terraform ###
+  - name: tf
+    keyword: tf
+    snippet: terraform
+
+  - name: tfc
+    keyword: tfc
+    snippet: terraform -chdir={{}}
+
+  - name: terraform plan
+    keyword: p
+    snippet: plan
+    context:
+      lbuffer: ^terraform\s
+
+  - name: terraform apply
+    keyword: a
+    snippet: apply
+    context:
+      lbuffer: ^terraform\s
+
+  ### zinit ###
+  - name: zinit clean
+    keyword: zc
+    snippet: zinit delete --clean
+
+  - name: src
+    keyword: src
+    snippet: source $ZDOTDIR/.zshrc
+
+  ### date ###
+  - name: yyyymmdd
+    keyword: ymd
+    snippet: date "+%Y%m%d"
+    evaluate: true
+    global: true
+
+  - name: yyyy-mm-dd
+    keyword: ymd-
+    snippet: date "+%Y-%m-%d"
+    evaluate: true
+    global: true
+
+  - name: yyyy/mm/dd
+    keyword: ymd/
+    snippet: date "+%Y/%m/%d"
+    evaluate: true
+    global: true
+
+  ### flutter ###
+  - name: flutter
+    keyword: f
+    snippet: flutter
+
+  - name: flutter pub add
+    keyword: pa
+    snippet: pub add
+    context:
+      lbuffer: ^flutter\s
+
+  - name: flutter build runner
+    keyword: pb
+    snippet: pub run buil_runner build
+    context:
+      lbuffer: ^flutter\s

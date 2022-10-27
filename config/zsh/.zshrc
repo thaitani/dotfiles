@@ -97,8 +97,13 @@ widget::ghq::dir() {
 zle -N widget::history
 zle -N widget::ghq::dir
 
-bindkey "^R"        widget::history     # ^-r
-bindkey "^G"        widget::ghq::dir    # ^-g
+bindkey -v
+bindkey "^R" widget::history
+bindkey "^G" widget::ghq::dir
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
 
 ### starship(warpを除く) ###
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
