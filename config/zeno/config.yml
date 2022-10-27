@@ -34,6 +34,12 @@ snippets:
     context:
       lbuffer: ^git\s
 
+  - name: git uncommit
+    keyword: uncommit
+    snippet: reset --soft HEAD^
+    context:
+      lbuffer: ^git\s
+
   # git branch
   - name: git b
     keyword: b
