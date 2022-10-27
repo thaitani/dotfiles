@@ -30,3 +30,6 @@ export MINIKUBE_HOME="$XDG_DATA_HOME/minikube"
 
 ### homebrew ###
 export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
+
+### Deno ###
+export DENO_INSTALL="$XDG_DATA_HOME/deno"

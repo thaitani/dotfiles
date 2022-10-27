@@ -11,6 +11,7 @@ path=(
     "$PUB_CACHE/bin"(N-/)
     "$FVM_HOME/default/bin"(N-/)
     "$NPM_DATA_DIR/bin"(N-/)
+    "$DENO_INSTALL/bin"(N-/)
     "$path[@]"
 )
 
