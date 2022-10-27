@@ -10,9 +10,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 ### zsh ###
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
-### less history ###
-export LESSHISTFILE="$XDG_CACHE_HOME"
-
 ### flutter ###
 export FVM_HOME="$XDG_DATA_HOME/fvm"
 export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache"

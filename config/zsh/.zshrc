@@ -16,6 +16,7 @@ path=(
 
 ### history ###
 export HISTFILE="$XDG_STATE_HOME/zsh_history"
+export LESSHISTFILE="$XDG_STATE_HOME/less_history"
 export HISTSIZE=12000
 export SAVEHIST=10000
 
@@ -53,12 +54,50 @@ zshaddhistory() {
     [[ ! "$line" =~ "^(cd|jj?|lazygit|l[sal]|rm|rmdir)($| )" ]]
 }
 
-### Git repo create ###
+### git repo create ###
 ghcr() {
     gh repo create $argv
     ghq get $argv[1]
     code $(ghq list --full-path -e $argv[1])
 }
+
+### git repo open ###
+ghcode() {
+    local repo="$(ghq list -p | fzf)"
+    code $repo
+}
+
+### key bindings ###
+widget::history() {
+    local selected="$(history -inr 1 | fzf --exit-0 --query "$LBUFFER" | cut -d' ' -f4- | sed 's/\\n/\n/g')"
+    if [ -n "$selected" ]; then
+        BUFFER="$selected"
+        CURSOR=$#BUFFER
+    fi
+    zle -R -c # refresh screen
+}
+
+widget::ghq::select() {
+    local root="$(ghq root)"
+    # TODO: fzf preview改善
+    ghq list | sort | fzf --exit-0
+}
+widget::ghq::dir() {
+    local selected="$(widget::ghq::select)"
+    if [ -z "$selected" ]; then
+        return
+    fi
+
+    local repo_dir="$(ghq list --exact --full-path "$selected")"
+    BUFFER="cd ${(q)repo_dir}"
+    zle accept-line
+    zle -R -c # refresh screen
+}
+zle -N widget::history
+zle -N widget::ghq::dir
+
+bindkey "^R"        widget::history     # ^-r
+bindkey "^G"        widget::ghq::dir    # ^-g
 
 ### starship(warpを除く) ###
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
