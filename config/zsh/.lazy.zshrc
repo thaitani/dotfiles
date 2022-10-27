@@ -2,6 +2,12 @@
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+(( ${+commands[trash]} )) && alias rm='trash'
+
+### functions ###
+mkcd() {
+    command mkdir -p -- "$@" && builtin cd "${@[-1]:a}"
+}
 
 ### asdf ###
 __asdf_atload() {
