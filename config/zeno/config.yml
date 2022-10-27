@@ -22,6 +22,13 @@ snippets:
     snippet: git
 
   # git add
+  # git add
+  - name: git a
+    keyword: a
+    snippet: add -v
+    context:
+      lbuffer: ^git\s
+
   - name: git aa
     keyword: aa
     snippet: add -vA
@@ -35,7 +42,7 @@ snippets:
       lbuffer: ^git\s
 
   - name: git uncommit
-    keyword: uncommit
+    keyword: uc
     snippet: reset --soft HEAD^
     context:
       lbuffer: ^git\s
@@ -130,12 +137,17 @@ snippets:
       lbuffer: ^git\s
 
   # git log
-  - name: git lg
-    keyword: lg
+  - name: git g
+    keyword: g
     snippet: graph
     context:
       lbuffer: ^git\s
 
+  - name: git l
+    keyword: l
+    snippet: log
+    context:
+      lbuffer: ^git\s
   # git pull
   - name: git pl
     keyword: pl
@@ -185,13 +197,13 @@ snippets:
   # git status
   - name: git s
     keyword: s
-    snippet: status
+    snippet: status -s
     context:
       lbuffer: ^git\s
 
   - name: git ss
     keyword: ss
-    snippet: status -s
+    snippet: status
     context:
       lbuffer: ^git\s
 
@@ -209,27 +221,13 @@ snippets:
     context:
       lbuffer: ^git\s
 
-  # git current branch name
-  - name: git B
-    keyword: B
-    snippet: git symbolic-ref --short HEAD
-    evaluate: true
+  # git whoami
+  - name: git whoami
+    keyword: w
+    snippet: whoami
     context:
       lbuffer: ^git\s
 
-  - name: git OB
-    keyword: OB
-    snippet: zsh -c "echo origin/$(git symbolic-ref --short HEAD)"
-    evaluate: true
-    context:
-      lbuffer: ^git\s
-
-  # git upstream
-  - name: git U
-    keyword: U
-    snippet: upstream
-    context:
-      lbuffer: ^git\s
 
   ### docker ###
   - name: dok
@@ -289,12 +287,39 @@ snippets:
 
   ### zinit ###
   - name: zinit clean
-    keyword: zc
+    keyword: zic
     snippet: zinit delete --clean
 
-  - name: src
-    keyword: src
+  - name: zinit update all
+    keyword: ziua
+    snippet: zinit update --all
+
+  - name: zshrc src
+    keyword: zsrc
     snippet: source $ZDOTDIR/.zshrc
+
+  ### brew ###
+  - name: brew
+    keyword: br
+    snippet: brew
+
+  - name: brew outdated
+    keyword: o
+    snippet: outdated
+    context:
+      lbuffer: ^brew\s
+
+  - name: brew update
+    keyword: u
+    snippet: update
+    context:
+      lbuffer: ^brew\s
+
+  - name: brew upgrade
+    keyword: ug
+    snippet: upgrade
+    context:
+      lbuffer: ^brew\s
 
   ### date ###
   - name: yyyymmdd

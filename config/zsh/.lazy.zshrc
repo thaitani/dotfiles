@@ -23,6 +23,10 @@ zinit wait lucid light-mode for \
 ### direnv ###
 (( ${+commands[direnv]} )) && eval "$(direnv hook zsh)"
 
+### fzf ###
+export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
+export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
+
 ### yq ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
     mv'yq* -> yq' \
@@ -59,14 +63,13 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
 ### zeno.zsh ###
 export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
 export ZENO_ENABLE_SOCK=1
-# export ZENO_DISABLE_BUILTIN_COMPLETION=1
 export ZENO_GIT_CAT="bat --color=always"
 export ZENO_GIT_TREE="exa --tree"
 
 __zeno_atload() {
     bindkey ' '  zeno-auto-snippet
     bindkey '^M' zeno-auto-snippet-and-accept-line
-    bindkey '^P' zeno-completion
+    bindkey '^I' zeno-completion
 }
 
 zinit wait lucid light-mode for \

@@ -1,8 +1,8 @@
 [alias]
 
-	log = log --pretty=oneline -n 20 --graph --abbrev-commit
 	aliases = config --get-regexp alias
 	whoami = config user.email
+	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 
 	# ghq
     create = !ghq create
