@@ -8,11 +8,11 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 typeset -U path
 
 path=(
-    "$PUB_CACHE/bin"(N-/)
-    "$FVM_HOME/default/bin"(N-/)
-    "$NPM_DATA_DIR/bin"(N-/)
-    "$DENO_INSTALL/bin"(N-/)
-    "$path[@]"
+  "$PUB_CACHE/bin"(N-/)
+  "$FVM_HOME/default/bin"(N-/)
+  "$NPM_DATA_DIR/bin"(N-/)
+  "$DENO_INSTALL/bin"(N-/)
+  "$path[@]"
 )
 
 ### history ###
@@ -51,48 +51,48 @@ setopt no_beep
 
 # history除外設定
 zshaddhistory() {
-    local line="${1%%$'\n'}"
-    [[ ! "$line" =~ "^(cd|jj?|lazygit|l[sal]|rm|rmdir)($| )" ]]
+  local line="${1%%$'\n'}"
+  [[ ! "$line" =~ "^(cd|jj?|lazygit|l[sal]|rm|rmdir)($| )" ]]
 }
 
 ### git repo create ###
 ghcr() {
-    gh repo create $argv
-    ghq get $argv[1]
-    code $(ghq list --full-path -e $argv[1])
+  gh repo create $argv
+  ghq get $argv[1]
+  code $(ghq list --full-path -e $argv[1])
 }
 
 ### git repo open ###
 ghcode() {
-    local repo="$(ghq list -p | fzf)"
-    code $repo
+  local repo="$(ghq list -p | fzf)"
+  code $repo
 }
 
 ### key bindings ###
 widget::history() {
-    local selected="$(history -inr 1 | fzf --exit-0 --query "$LBUFFER" | cut -d' ' -f4- | sed 's/\\n/\n/g')"
-    if [ -n "$selected" ]; then
-        BUFFER="$selected"
-        CURSOR=$#BUFFER
-    fi
-    zle -R -c # refresh screen
+  local selected="$(history -inr 1 | fzf --exit-0 --query "$LBUFFER" | cut -d' ' -f4- | sed 's/\\n/\n/g')"
+  if [ -n "$selected" ]; then
+    BUFFER="$selected"
+    CURSOR=$#BUFFER
+  fi
+  zle -R -c # refresh screen
 }
 
 widget::ghq::select() {
-    local root="$(ghq root)"
-    # TODO: fzf preview改善
-    ghq list | sort | fzf --exit-0
+  local root="$(ghq root)"
+  # TODO: fzf preview改善
+  ghq list | sort | fzf --exit-0
 }
 widget::ghq::dir() {
-    local selected="$(widget::ghq::select)"
-    if [ -z "$selected" ]; then
-        return
-    fi
+  local selected="$(widget::ghq::select)"
+  if [ -z "$selected" ]; then
+    return
+  fi
 
-    local repo_dir="$(ghq list --exact --full-path "$selected")"
-    BUFFER="cd ${(q)repo_dir}"
-    zle accept-line
-    zle -R -c # refresh screen
+  local repo_dir="$(ghq list --exact --full-path "$selected")"
+  BUFFER="cd ${(q)repo_dir}"
+  zle accept-line
+  zle -R -c # refresh screen
 }
 zle -N widget::history
 zle -N widget::ghq::dir
@@ -107,10 +107,10 @@ bindkey "^N" down-line-or-search
 
 ### starship(warpを除く) ###
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    eval "$(starship init zsh)"
+  eval "$(starship init zsh)"
 fi
 
 ### plugins ###
 zinit wait lucid null for \
-    atinit'source "$ZDOTDIR/.lazy.zshrc"' \
-    @'zdharma-continuum/null'
+  atinit'source "$ZDOTDIR/.lazy.zshrc"' \
+  @'zdharma-continuum/null'
