@@ -82,12 +82,12 @@ zinit wait lucid light-mode as'program' from'gh-r' bpick'*apple-darwin*' for \
     @'denisidoro/navi'
 
 ### zeno.zsh ###
-export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
-export ZENO_ENABLE_SOCK=1
-export ZENO_GIT_CAT="bat --color=always"
-export ZENO_GIT_TREE="exa --tree"
-
 __zeno_atload() {
+    export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
+    export ZENO_ENABLE_SOCK=1
+    export ZENO_GIT_CAT="bat --color=always"
+    export ZENO_GIT_TREE="exa --tree"
+
     bindkey ' '  zeno-auto-snippet
     bindkey '^M' zeno-auto-snippet-and-accept-line
     bindkey '^I' zeno-completion
