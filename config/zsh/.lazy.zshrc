@@ -26,6 +26,7 @@ __direnv_atload() {
 }
 zinit wait lucid light-mode as'program' from'gh-r' for \
     mv'direnv* -> direnv' \
+    atload'__direnv_atload' \
     @'direnv/direnv'
 
 ### fzf ###
