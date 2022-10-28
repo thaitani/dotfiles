@@ -37,6 +37,7 @@ __fzf_atload() {
 zinit wait lucid light-mode as'program' from'gh-r' for \
     mv'fzf* -> fzf' \
     atclone'./fzf shell-completion zsh >_fzf' atpull'%atclone' \
+    atload'__fzf_atload' \
     @'junegunn/fzf'
 
 ### yq ###
@@ -72,12 +73,13 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     atload'__lsd_atload' \
     @'Peltoche/lsd'
 
-# ### navi ###
+### navi ###
 __navi_search() {
     LBUFFER="$(navi --print --query="$LBUFFER")"
     zle reset-prompt
 }
 __navi_atload() {
+    export NAVI_PATH="$XDG_DATA_HOME/navi/"
     export NAVI_CONFIG="$XDG_CONFIG_HOME/navi/config.yaml"
 
     zle -N __navi_search
