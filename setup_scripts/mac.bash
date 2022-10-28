@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-set -x
-# shellcheck source=./setup_scripts/common.bash
-source "$(dirname "$0")/common.bash"
 
 # スクリーンショットの保存先変更
 defaults write com.apple.screencapture name "YYYY-MM-DD hh.mm.ss"
-mkdir $HOME/Pictures/ScreenShots/
+mkdir -p $HOME/Pictures/ScreenShots/
 defaults write com.apple.screencapture location $HOME/Pictures/ScreenShots/
 
 # ランチパットリセット
@@ -46,10 +43,6 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 ## 日付と時刻のフォーマット
 defaults write com.apple.menuextra.clock DateFormat -string "M\u6708d\u65e5(EEE)  H:mm:ss"
-
-# Control Center
-## bluetooth アイコン表示
-defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
 
 # Safari
 ## 検索クエリをAppleに送信しない

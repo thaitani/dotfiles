@@ -9,4 +9,5 @@ else
     git clone https://github.com/ash-valley/dotfiles "$INSTALL_DIR"
 fi
 
-/bin/bash "$INSTALL_DIR/setup_scripts/setup.bash"
+cd $INSTALL_DIR
+make

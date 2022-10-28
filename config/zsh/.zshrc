@@ -1,3 +1,6 @@
+### brew ###
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 ### zinit ###
 typeset -gAH ZINIT
 ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
@@ -6,7 +9,6 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 
 ### path ###
 typeset -U path
-
 path=(
   "$PUB_CACHE/bin"(N-/)
   "$FVM_HOME/default/bin"(N-/)
@@ -52,7 +54,7 @@ setopt no_beep
 # history除外設定
 zshaddhistory() {
   local line="${1%%$'\n'}"
-  [[ ! "$line" =~ "^(cd|jj?|lazygit|l[sal]|rm|rmdir)($| )" ]]
+  [[ ! "$line" =~ "^(cd|jj?|lazygit|l[sal]|rm|rmdir|exit)($| )" ]]
 }
 
 ### git repo create ###
