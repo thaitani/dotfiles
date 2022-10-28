@@ -24,8 +24,14 @@ zinit wait lucid light-mode for \
 (( ${+commands[direnv]} )) && eval "$(direnv hook zsh)"
 
 ### fzf ###
-export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
-export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
+__fzf_atload() {
+    export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
+    export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
+}
+zinit wait lucid light-mode as'program' from'gh-r' for \
+    mv'fzf* -> fzf' \
+    atclone'./fzf shell-completion zsh >_fzf' atpull'%atclone' \
+    @'junegunn/fzf'
 
 ### yq ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
@@ -59,6 +65,21 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     pick'lsd*/lsd' \
     atload'__lsd_atload' \
     @'Peltoche/lsd'
+
+# ### navi ###
+__navi_search() {
+    LBUFFER="$(navi --print --query="$LBUFFER")"
+    zle reset-prompt
+}
+__navi_atload() {
+    export NAVI_CONFIG="$XDG_CONFIG_HOME/navi/config.yaml"
+
+    zle -N __navi_search
+    bindkey '^N' __navi_search
+}
+zinit wait lucid light-mode as'program' from'gh-r' bpick'*apple-darwin*' for \
+    atload'__navi_atload' \
+    @'denisidoro/navi'
 
 ### zeno.zsh ###
 export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
