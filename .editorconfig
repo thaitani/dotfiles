@@ -13,18 +13,6 @@ indent_style = space
 indent_size = 4
 trim_trailing_whitespace = false
 
-[*.html]
-indent_style = space
-indent_size = 2
-
-[*.{js,ts,jsx,tsx}]
-indent_style = space
-indent_size = 2
-
-[*.{css,scss}]
-indent_style = space
-indent_size = 2
-
 [*.json]
 indent_style = space
 indent_size = 2
