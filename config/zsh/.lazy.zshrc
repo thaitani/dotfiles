@@ -100,7 +100,6 @@ __zeno_atload() {
   bindkey '^M' zeno-auto-snippet-and-accept-line
   bindkey '^I' zeno-completion
 }
-
 zinit wait lucid light-mode for \
   atload'__zeno_atload' \
   @'yuki-yano/zeno.zsh'
