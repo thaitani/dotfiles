@@ -2,8 +2,8 @@
 
 # スクリーンショットの保存先変更
 defaults write com.apple.screencapture name "YYYY-MM-DD hh.mm.ss"
-mkdir -p $HOME/Pictures/ScreenShots/
-defaults write com.apple.screencapture location $HOME/Pictures/ScreenShots/
+mkdir -p "$HOME/Pictures/ScreenShots/"
+defaults write com.apple.screencapture location "$HOME/Pictures/ScreenShots/"
 
 # ランチパットリセット
 defaults write com.apple.dock ResetLaunchPad -bool TRUE

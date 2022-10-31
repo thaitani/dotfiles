@@ -9,5 +9,5 @@ else
     git clone https://github.com/ash-valley/dotfiles "$INSTALL_DIR"
 fi
 
-cd $INSTALL_DIR
+cd "$INSTALL_DIR" || exit
 make
