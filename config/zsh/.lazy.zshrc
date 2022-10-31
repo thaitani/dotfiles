@@ -6,7 +6,7 @@ alias rm='rm -i'
 
 ### functions ###
 mkcd() {
-    command mkdir -p -- "$@" && builtin cd "${@[-1]:a}"
+  command mkdir -p -- "$@" && builtin cd "${@[-1]:a}"
 }
 
 ### asdf ###
