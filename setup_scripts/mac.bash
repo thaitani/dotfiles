@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # スクリーンショットの保存先変更
-defaults write com.apple.screencapture name "YYYY-MM-DD hh.mm.ss"
+defaults write com.apple.screencapture name "ScreenShot"
 mkdir -p "$HOME/Pictures/ScreenShots/"
 defaults write com.apple.screencapture location "$HOME/Pictures/ScreenShots/"
 
