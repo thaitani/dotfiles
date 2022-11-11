@@ -230,15 +230,9 @@ snippets:
 
 
   ### docker ###
-  - name: dok
-    keyword: dok
+  - name: dk
+    keyword: dk
     snippet: docker
-
-  - name: docker c
-    keyword: c
-    snippet: compose
-    context:
-      lbuffer: ^docker\s
 
   - name: docker pl
     keyword: pl
@@ -263,6 +257,22 @@ snippets:
     snippet: run --rm -it
     context:
       lbuffer: ^docker\s
+
+  - name: dc
+    keyword: dc
+    snippet: docker-compose
+
+  - name: dc up
+    keyword: u
+    snippet: up -d
+    context:
+      lbuffer: ^docker-compose\s
+
+  - name: dc d
+    keyword: d
+    snippet: down
+    context:
+      lbuffer: ^docker-compose\s
 
   ### terraform ###
   - name: tf
