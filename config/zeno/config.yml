@@ -17,25 +17,25 @@ snippets:
     snippet: cd ../../..
 
   ### git ###
-  - name: g
+  - name: git
     keyword: g
     snippet: git
 
   # git add
   # git add
-  - name: git a
+  - name: git add -v
     keyword: a
     snippet: add -v
     context:
       lbuffer: ^git\s
 
-  - name: git aa
+  - name: git add -vA
     keyword: aa
     snippet: add -vA
     context:
       lbuffer: ^git\s
 
-  - name: git r
+  - name: git reset
     keyword: r
     snippet: reset
     context:
@@ -48,46 +48,46 @@ snippets:
       lbuffer: ^git\s
 
   # git branch
-  - name: git b
+  - name: git branch
     keyword: b
     snippet: branch
     context:
       lbuffer: ^git\s
 
   # git commit
-  - name: git c
+  - name: git commit
     keyword: c
     snippet: commit
     context:
       lbuffer: ^git\s
 
-  - name: git cam
+  - name: git commit amend
     keyword: cam
     snippet: commit --amend --no-edit
     context:
       lbuffer: ^git\s
 
-  - name: git cm
+  - name: git commit -m
     keyword: cm
     snippet: commit -m '{{}}'
     context:
       lbuffer: ^git\s
 
-  - name: git C
+  - name: git cz
     keyword: C
     snippet: cz
     context:
       lbuffer: ^git\s
 
   # git cherry-pick
-  - name: git cp
+  - name: git cherry-pick
     keyword: cp
     snippet: cherry-pick
     context:
       lbuffer: ^git\s
 
   # git diff
-  - name: git st
+  - name: git diff --stat
     keyword: st
     snippet: diff --stat
     context:
@@ -124,32 +124,32 @@ snippets:
       lbuffer: ^git\s
 
   # git fetch
-  - name: git f
+  - name: git fetch
     keyword: f
     snippet: fetch
     context:
       lbuffer: ^git\s
 
-  - name: git fu
+  - name: git fetch upstream
     keyword: fu
     snippet: fetch upstream
     context:
       lbuffer: ^git\s
 
   # git log
-  - name: git g
+  - name: git graph
     keyword: g
     snippet: graph
     context:
       lbuffer: ^git\s
 
-  - name: git l
+  - name: git log
     keyword: l
     snippet: log
     context:
       lbuffer: ^git\s
   # git pull
-  - name: git pl
+  - name: git pull
     keyword: pl
     snippet: pull
     context:
@@ -163,19 +163,19 @@ snippets:
       lbuffer: ^git\s
 
   # git push
-  - name: git ps
+  - name: git push
     keyword: ps
     snippet: push
     context:
       lbuffer: ^git\s
 
-  - name: git psu
+  - name: git push origin
     keyword: psu
     snippet: push -u origin HEAD
     context:
       lbuffer: ^git\s
 
-  - name: git pst
+  - name: git push tag
     keyword: pst
     snippet: push --tags
     context:
@@ -195,7 +195,7 @@ snippets:
       lbuffer: ^git\s
 
   # git status
-  - name: git s
+  - name: git status
     keyword: s
     snippet: status -s
     context:
@@ -208,7 +208,7 @@ snippets:
       lbuffer: ^git\s
 
   # git switch
-  - name: git sw
+  - name: git switch
     keyword: sw
     snippet: switch
     context:
@@ -230,56 +230,56 @@ snippets:
 
 
   ### docker ###
-  - name: dk
+  - name: docker
     keyword: dk
     snippet: docker
 
-  - name: docker pl
+  - name: docker pull
     keyword: pl
     snippet: pull
     context:
       lbuffer: ^docker\s
 
-  - name: docker ri
+  - name: docker run -it
     keyword: ri
     snippet: run -it
     context:
       lbuffer: ^docker\s
 
-  - name: docker rrm
+  - name: docker run --rm
     keyword: rrm
     snippet: run --rm
     context:
       lbuffer: ^docker\s
 
-  - name: docker rrmi
+  - name: docker run --run -it
     keyword: rrmi
     snippet: run --rm -it
     context:
       lbuffer: ^docker\s
 
-  - name: dc
+  - name: docker-compose
     keyword: dc
     snippet: docker-compose
 
-  - name: dc up
+  - name: docker-compose up -d
     keyword: u
     snippet: up -d
     context:
       lbuffer: ^docker-compose\s
 
-  - name: dc d
+  - name: docker-compose down
     keyword: d
     snippet: down
     context:
       lbuffer: ^docker-compose\s
 
   ### terraform ###
-  - name: tf
+  - name: terraform
     keyword: tf
     snippet: terraform
 
-  - name: tfc
+  - name: terraform -chdir
     keyword: tfc
     snippet: terraform -chdir={{}}
 
