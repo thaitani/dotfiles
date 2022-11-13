@@ -4,6 +4,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "leoafarias/fvm"
 
+brew "act"
 brew "starship"
 brew "cocoapods"
 brew "dust"
@@ -19,7 +20,6 @@ brew "procs"
 brew "vim"
 
 cask "1password"
-cask "1password/tap/1password-cli"
 cask "android-studio"
 cask "brave-browser"
 cask "coteditor"
@@ -46,4 +46,3 @@ cask "warp"
 cask "zoom"
 
 mas "Fuwari", id: 1187652334
-mas "LINE", id: 539883307

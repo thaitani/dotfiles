@@ -331,6 +331,18 @@ snippets:
     context:
       lbuffer: ^brew\s
 
+  - name: brew bundle
+    keyword: b
+    snippet: bundle --no-lock
+    context:
+      lbuffer: ^brew\s
+
+  - name: brew cleanup
+    keyword: c
+    snippet: bundle cleanup
+    context:
+      lbuffer: ^brew\s
+
   ### date ###
   - name: yyyymmdd
     keyword: ymd
