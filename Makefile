@@ -27,7 +27,7 @@ homebrew:
 asdf:
 	asdf plugin add nodejs
 	asdf plugin add terraform
-	asdf plugin-add deno https://github.com/asdf-community/asdf-deno.git
+	asdf plugin add deno https://github.com/asdf-community/asdf-deno.git
 
 	asdf install
 
