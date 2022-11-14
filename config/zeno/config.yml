@@ -22,7 +22,6 @@ snippets:
     snippet: git
 
   # git add
-  # git add
   - name: git add -v
     keyword: a
     snippet: add -v
