@@ -25,6 +25,7 @@ homebrew:
 # install after
 .PHONY: asdf
 asdf:
+	asdf plugin add python
 	asdf plugin add nodejs
 	asdf plugin add terraform
 	asdf plugin add deno https://github.com/asdf-community/asdf-deno.git
