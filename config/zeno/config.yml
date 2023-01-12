@@ -374,6 +374,12 @@ snippets:
 
   - name: flutter build runner
     keyword: pb
-    snippet: pub run buil_runner build
+    snippet: pub run build_runner build
+    context:
+      lbuffer: ^flutter\s
+
+  - name: flutter import sorter
+    keyword: ps
+    snippet: pub run import_sorter:main
     context:
       lbuffer: ^flutter\s
