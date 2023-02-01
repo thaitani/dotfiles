@@ -1,6 +1,9 @@
 ### brew ###
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+### 1Password ###
+source ~/.config/op/plugins.sh
+
 ### zinit ###
 typeset -gAH ZINIT
 ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
