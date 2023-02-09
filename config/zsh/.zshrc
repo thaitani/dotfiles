@@ -76,39 +76,20 @@ ghcode() {
 }
 
 ### key bindings ###
-widget::history() {
-  local selected="$(history -inr 1 | fzf --exit-0 --query "$LBUFFER" | cut -d' ' -f4- | sed 's/\\n/\n/g')"
-  if [ -n "$selected" ]; then
-    BUFFER="$selected"
-    CURSOR=$#BUFFER
-  fi
-  zle -R -c # refresh screen
-}
-
-widget::ghq::select() {
-  local root="$(ghq root)"
-  # TODO: fzf preview改善
-  ghq list | sort | fzf --exit-0
-}
-widget::ghq::dir() {
-  local selected="$(widget::ghq::select)"
-  if [ -z "$selected" ]; then
-    return
-  fi
-
-  local repo_dir="$(ghq list --exact --full-path "$selected")"
-  BUFFER="cd ${(q)repo_dir}"
-  zle accept-line
-  zle -R -c # refresh screen
-}
-zle -N widget::history
-zle -N widget::ghq::dir
+# widget::history() {
+#   local selected="$(history -inr 1 | fzf --exit-0 --query "$LBUFFER" | cut -d' ' -f4- | sed 's/\\n/\n/g')"
+#   if [ -n "$selected" ]; then
+#     BUFFER="$selected"
+#     CURSOR=$#BUFFER
+#   fi
+#   zle -R -c # refresh screen
+# }
+# zle -N widget::history
 
 bindkey -v
-bindkey "^R" widget::history
-bindkey "^G" widget::ghq::dir
-bindkey '^A' beginning-of-line
-bindkey '^E' end-of-line
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+# bindkey "^R" widget::history
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 

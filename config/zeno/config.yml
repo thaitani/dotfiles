@@ -227,7 +227,6 @@ snippets:
     context:
       lbuffer: ^git\s
 
-
   ### docker ###
   - name: docker
     keyword: dk
@@ -304,7 +303,7 @@ snippets:
     snippet: zinit update --all
 
   - name: zshrc src
-    keyword: zsrc
+    keyword: reload
     snippet: source $ZDOTDIR/.zshrc
 
   ### brew ###

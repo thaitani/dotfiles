@@ -99,6 +99,9 @@ __zeno_atload() {
   bindkey ' '  zeno-auto-snippet
   bindkey '^M' zeno-auto-snippet-and-accept-line
   bindkey '^I' zeno-completion
+  bindkey '^R' zeno-history-selection
+  bindkey '^X' zeno-insert-snippet
+  bindkey '^G' zeno-ghq-cd
 }
 zinit wait lucid light-mode for \
   atload'__zeno_atload' \
@@ -109,7 +112,6 @@ zinit wait lucid blockf light-mode for \
   @'zsh-users/zsh-autosuggestions' \
   @'zsh-users/zsh-completions' \
   @'zdharma-continuum/fast-syntax-highlighting' \
-  @'zdharma-continuum/history-search-multi-word' \
 
 ### completion styles ###
 zstyle ':completion:*:default' menu select=1
