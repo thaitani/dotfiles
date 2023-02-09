@@ -33,3 +33,6 @@ export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
 
 ### Deno ###
 export DENO_INSTALL="$XDG_DATA_HOME/deno"
+
+### gibo ###
+export GIBO_BOILERPLATES="$XDG_CACHE_HOME/.gitignore-boilerplates"

@@ -227,6 +227,19 @@ snippets:
     context:
       lbuffer: ^git\s
 
+  # gitignore boiler plates
+  - name: gibo update
+    keyword: u
+    snippet: update
+    context:
+      lbuffer: ^gibo\s
+
+  - name: gibo create
+    keyword: c
+    snippet: dump {{}} > .gitignore
+    context:
+      lbuffer: ^gibo\s
+
   ### docker ###
   - name: docker
     keyword: dk
