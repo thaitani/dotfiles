@@ -236,7 +236,7 @@ snippets:
 
   - name: gibo create
     keyword: c
-    snippet: dump {{}} > .gitignore
+    snippet: dump {{}} >> .gitignore
     context:
       lbuffer: ^gibo\s
 
