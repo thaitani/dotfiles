@@ -85,11 +85,11 @@ ghcode() {
 #   zle -R -c # refresh screen
 # }
 # zle -N widget::history
+# bindkey "^R" widget::history
 
 bindkey -v
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
-# bindkey "^R" widget::history
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 
