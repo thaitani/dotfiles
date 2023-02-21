@@ -75,6 +75,12 @@ ghcode() {
   code $repo
 }
 
+### git sim ###
+# https://github.com/initialcommit-com/git-sim#docker-installation
+git-sim() {
+  docker run --rm -v $(pwd):/usr/src/git-sim git-sim "$@"
+}
+
 ### key bindings ###
 # widget::history() {
 #   local selected="$(history -inr 1 | fzf --exit-0 --query "$LBUFFER" | cut -d' ' -f4- | sed 's/\\n/\n/g')"
