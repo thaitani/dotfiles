@@ -55,11 +55,11 @@
     insteadOf = https://github.com/
 
 [ghq]
-	user = ash-valley
+	user = thaitani
 
 [user]
-	email = 42672817+ash-valley@users.noreply.github.com
-	name = ash-valley
+	email = 42672817+thaitani@users.noreply.github.com
+	name = thaitani
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII1XlcjJLtZGWnXF/LjS1AEWJeHj/CJu6Ej+4+PKyx64
 
 [gpg]
