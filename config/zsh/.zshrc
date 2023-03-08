@@ -19,8 +19,13 @@ path=(
   "$FVM_HOME/default/bin"(N-/)
   "$NPM_DATA_DIR/bin"(N-/)
   "$DENO_INSTALL/bin"(N-/)
+  "$PNPM_HOME"(N-/)
   "$path[@]"
 )
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 ### history ###
 export HISTFILE="$XDG_STATE_HOME/zsh_history"
@@ -111,3 +116,11 @@ zinit wait lucid null for \
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+# pnpm
+export PNPM_HOME="/Users/toshiki/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

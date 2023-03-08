@@ -36,3 +36,6 @@ export DENO_INSTALL="$XDG_DATA_HOME/deno"
 
 ### gibo ###
 export GIBO_BOILERPLATES="$XDG_CACHE_HOME/.gitignore-boilerplates"
+
+### pnpm ###
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
