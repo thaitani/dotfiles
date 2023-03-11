@@ -80,6 +80,22 @@ ghcode() {
   code $repo
 }
 
+### git repo clone ###
+ghget() {
+  local repo="$(gh repo list --json nameWithOwner,description,isPrivate,pushedAt -t '{{- range .}}
+  {{- if .isPrivate}}
+    {{- tablerow .nameWithOwner (printf "%.50s" .description) "Private" (timeago .pushedAt)}}
+  {{- else}}
+    {{- tablerow .nameWithOwner (printf "%.50s" .description) "Public" (timeago .pushedAt)}}
+  {{- end}}
+  {{- end}}' \
+  | fzf | awk '{print $1}')"
+  if [ "$repo" = "" ]; then
+    return
+  fi
+  ghq get $repo
+}
+
 ### git sim ###
 # https://github.com/initialcommit-com/git-sim#docker-installation
 git-sim() {
