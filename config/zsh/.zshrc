@@ -52,8 +52,6 @@ setopt hist_reduce_blanks
 setopt hist_save_no_dups
 # #以降をコメント扱い
 setopt interactive_comments
-# ヒストリを共有
-setopt share_history
 # 補完強化
 setopt magic_equal_subst
 # 出力時8ビットを通す

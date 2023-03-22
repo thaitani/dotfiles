@@ -14,6 +14,7 @@ brew "gh"
 brew "ghq"
 brew "mas"
 brew "shellcheck"
+brew "tmux"
 brew "procs"
 brew "vim"
 
