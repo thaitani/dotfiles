@@ -33,6 +33,10 @@ export LESSHISTFILE="$XDG_STATE_HOME/less_history"
 export HISTSIZE=12000
 export SAVEHIST=10000
 
+### fzf ###
+export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
+export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
+
 # cd時に自動でpush
 setopt auto_pushd
 # 直前のコマンドの重複削除
@@ -118,8 +122,31 @@ bindkey "^E" end-of-line
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 
-### starship(warpを除く) ###
+### VSCode以外 ###
+if [ "$VSCODE_PID" = "" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
+  ### tmux ###
+  if [[ ! -n $TMUX && $- == *l* ]]; then
+    # get the IDs
+    ID="`tmux list-sessions`"
+    if [[ -z "$ID" ]]; then
+      tmux new-session
+    fi
+    create_new_session="Create New Session"
+    ID="$ID\n${create_new_session}:"
+    ID="`echo $ID | fzf | cut -d: -f1`"
+    if [[ "$ID" = "${create_new_session}" ]]; then
+      tmux new-session
+    elif [[ -n "$ID" ]]; then
+      tmux attach-session -t "$ID"
+    else
+      :  # Start terminal normally
+    fi
+  fi
+fi
+
+### warp以外###
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+  ### starship ###
   eval "$(starship init zsh)"
 fi
 
