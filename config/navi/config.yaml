@@ -17,10 +17,10 @@ finder:
 
 cheats:
   paths:
-    - $XDG_CONFIG_HOME/navi/snippets
+    - $XDG_CONFIG_HOME/navi/snippet
 
 # search:
-  # tags: git,!checkout # equivalent to the --tag-rules option
+# tags: git,!checkout # equivalent to the --tag-rules option
 
 shell:
   command: zsh
