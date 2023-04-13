@@ -401,3 +401,9 @@ snippets:
     snippet: pub run build_runner watch -d
     context:
       lbuffer: ^flutter\s
+
+  - name: flutter create
+    keyword: c
+    snippet: create --org dev.thaitani --with-driver-test {{}}
+    context:
+      lbuffer: ^flutter\s
