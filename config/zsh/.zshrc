@@ -15,6 +15,7 @@ source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 ### path ###
 typeset -U path
 path=(
+  "$XDG_CONFIG_HOME/bin"(N-/)
   "$PUB_CACHE/bin"(N-/)
   "$FVM_HOME/default/bin"(N-/)
   "$NPM_DATA_DIR/bin"(N-/)
