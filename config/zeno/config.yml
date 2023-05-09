@@ -182,7 +182,7 @@ snippets:
 
   - name: git push -f
     keyword: -f
-    snippet: --force-with-lease
+    snippet: --force-with-lease --force-if-includes
     context:
       lbuffer: ^git(\s+\S+)*\s+push\s
 
