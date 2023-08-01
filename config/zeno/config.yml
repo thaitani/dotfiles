@@ -378,32 +378,36 @@ snippets:
     keyword: f
     snippet: flutter
 
+  - name: fvm flutter
+    keyword: ff
+    snippet: fvm flutter
+
   - name: flutter pub add
     keyword: pa
     snippet: pub add
     context:
-      lbuffer: ^flutter\s
+      lbuffer: flutter\s
 
   - name: flutter build runner
     keyword: pb
     snippet: pub run build_runner build
     context:
-      lbuffer: ^flutter\s
+      lbuffer: flutter\s
 
   - name: flutter import sorter
     keyword: ps
     snippet: pub run import_sorter:main
     context:
-      lbuffer: ^flutter\s
+      lbuffer: flutter\s
 
   - name: flutter build watch
     keyword: pw
     snippet: pub run build_runner watch -d
     context:
-      lbuffer: ^flutter\s
+      lbuffer: flutter\s
 
   - name: flutter create
     keyword: c
     snippet: create --org dev.thaitani --with-driver-test {{}}
     context:
-      lbuffer: ^flutter\s
+      lbuffer: flutter\s
