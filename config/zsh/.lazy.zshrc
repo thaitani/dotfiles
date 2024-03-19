@@ -3,6 +3,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 (( ${+commands[trash]} )) && alias rm='trash'
+alias flutter='fvm flutter'
 
 ### functions ###
 mkcd() {
