@@ -21,6 +21,7 @@ path=(
   "$NPM_DATA_DIR/bin"(N-/)
   "$DENO_INSTALL/bin"(N-/)
   "$PNPM_HOME"(N-/)
+  "$ANDROID_HOME/platform-tools"(N-/)
   "$path[@]"
 )
 case ":$PATH:" in
