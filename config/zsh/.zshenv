@@ -13,7 +13,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 ### flutter ###
-export FVM_HOME="$XDG_DATA_HOME/fvm"
+export FVM_CACHE_PATH="$XDG_CACHE_HOME/fvm"
 export PUB_CACHE="$XDG_CACHE_HOME/.pub-cache"
 
 ### Node.js ###

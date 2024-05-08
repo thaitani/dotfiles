@@ -17,7 +17,7 @@ typeset -U path
 path=(
   "$XDG_CONFIG_HOME/bin"(N-/)
   "$PUB_CACHE/bin"(N-/)
-  "$FVM_HOME/default/bin"(N-/)
+  "$FVM_CACHE_PATH/default/bin"(N-/)
   "$NPM_DATA_DIR/bin"(N-/)
   "$DENO_INSTALL/bin"(N-/)
   "$PNPM_HOME"(N-/)
