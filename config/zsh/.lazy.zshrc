@@ -99,7 +99,6 @@ zinit wait lucid light-mode for \
 
 ### zsh plugins ###
 zinit wait lucid blockf light-mode for \
-  @'zsh-users/zsh-autosuggestions' \
   @'zsh-users/zsh-completions' \
   @'zdharma-continuum/fast-syntax-highlighting' \
 
