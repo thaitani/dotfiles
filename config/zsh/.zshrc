@@ -124,27 +124,27 @@ bindkey "^E" end-of-line
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 
-### VSCode以外 ###
-if [ "$VSCODE_PID" = "" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
-  ### tmux ###
-  if [[ ! -n $TMUX && $- == *l* ]]; then
-    # get the IDs
-    ID="`tmux list-sessions`"
-    if [[ -z "$ID" ]]; then
-      tmux new-session
-    fi
-    create_new_session="Create New Session"
-    ID="$ID\n${create_new_session}:"
-    ID="`echo $ID | fzf | cut -d: -f1`"
-    if [[ "$ID" = "${create_new_session}" ]]; then
-      tmux new-session
-    elif [[ -n "$ID" ]]; then
-      tmux attach-session -t "$ID"
-    else
-      :  # Start terminal normally
-    fi
-  fi
-fi
+# ### VSCode以外 ###
+# if [ "$VSCODE_PID" = "" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
+#   ### tmux ###
+#   if [[ ! -n $TMUX && $- == *l* ]]; then
+#     # get the IDs
+#     ID="`tmux list-sessions`"
+#     if [[ -z "$ID" ]]; then
+#       tmux new-session
+#     fi
+#     create_new_session="Create New Session"
+#     ID="$ID\n${create_new_session}:"
+#     ID="`echo $ID | fzf | cut -d: -f1`"
+#     if [[ "$ID" = "${create_new_session}" ]]; then
+#       tmux new-session
+#     elif [[ -n "$ID" ]]; then
+#       tmux attach-session -t "$ID"
+#     else
+#       :  # Start terminal normally
+#     fi
+#   fi
+# fi
 
 ### warp以外###
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
