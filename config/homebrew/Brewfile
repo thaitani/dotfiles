@@ -21,7 +21,6 @@ brew "vim"
 
 cask "1password"
 cask "1password-cli"
-cask "arc"
 cask "android-studio"
 cask "applite"
 cask "brave-browser"
