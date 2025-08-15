@@ -22,6 +22,8 @@ path=(
   "$DENO_INSTALL/bin"(N-/)
   "$PNPM_HOME"(N-/)
   "$ANDROID_HOME/platform-tools"(N-/)
+  "$ANDROID_HOME/cmdline-tools/latest/bin"(N-/)
+  "$ANDROID_HOME/emulator"(N-/)
   "$path[@]"
 )
 case ":$PATH:" in
