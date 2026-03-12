@@ -20,3 +20,5 @@ node_modules/
 
 ### Bundle ###
 .bundle/
+
+**/.claude/settings.local.json
