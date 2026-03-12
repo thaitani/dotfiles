@@ -1,3 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ ! -f "./ios/Podfile" ]]; then
+  echo "Error: ./ios/Podfile not found. Run this in the Flutter project root."
+  exit 1
+fi
+
 rm -rf ./ios/Pods/
 rm -rf ./ios/Podfile.lock
 
