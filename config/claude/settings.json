@@ -1,0 +1,49 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(tree:*)",
+      "Bash(flutter:*)",
+      "Bash(dart:*)",
+      "Bash(dart run build_runner:*)",
+      "Bash(adb:*)",
+      "Bash(xcrun simctl:*)",
+      "Bash(maestro:*)",
+      "Bash(MAESTRO_DRIVER_STARTUP_TIMEOUT=:* maestro:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gh:*)",
+      "Bash(gemini -p:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.maestro.dev)",
+      "WebFetch(domain:pub.dev)"
+    ],
+    "deny": [
+      "Read(**/.env*)",
+      "Read(**/secrets/**)"
+    ]
+  },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true,
+    "supabase@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    }
+  }
+}
