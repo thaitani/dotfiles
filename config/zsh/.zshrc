@@ -109,17 +109,6 @@ git-sim() {
 }
 
 ### key bindings ###
-# widget::history() {
-#   local selected="$(history -inr 1 | fzf --exit-0 --query "$LBUFFER" | cut -d' ' -f4- | sed 's/\\n/\n/g')"
-#   if [ -n "$selected" ]; then
-#     BUFFER="$selected"
-#     CURSOR=$#BUFFER
-#   fi
-#   zle -R -c # refresh screen
-# }
-# zle -N widget::history
-# bindkey "^R" widget::history
-
 bindkey -v
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
@@ -148,11 +137,8 @@ bindkey "^N" down-line-or-search
 #   fi
 # fi
 
-### warp以外###
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-  ### starship ###
-  eval "$(starship init zsh)"
-fi
+### starship ###
+eval "$(starship init zsh)"
 
 ### plugins ###
 zinit wait lucid null for \
