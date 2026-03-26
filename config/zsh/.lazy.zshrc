@@ -82,23 +82,11 @@ zinit wait lucid light-mode as'program' from'gh-r' bpick'*apple-darwin*' for \
   atload'__navi_atload' \
   @'denisidoro/navi'
 
-### zeno.zsh ###
-__zeno_atload() {
-  export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
-  export ZENO_ENABLE_SOCK=1
-  export ZENO_GIT_CAT="bat --color=always"
-  export ZENO_GIT_TREE="exa --tree"
+### custom widgets ###
+source "$ZDOTDIR/.widgets.zsh"
 
-  bindkey ' '  zeno-auto-snippet
-  bindkey '^M' zeno-auto-snippet-and-accept-line
-  bindkey '^I' zeno-completion
-  bindkey '^R' zeno-history-selection
-  bindkey '^X' zeno-insert-snippet
-  bindkey '^G' zeno-ghq-cd
-}
-zinit wait lucid light-mode for \
-  atload'__zeno_atload' \
-  @'yuki-yano/zeno.zsh'
+bindkey '^R' __fzf_history_selection
+bindkey '^G' __fzf_ghq_cd
 
 ### zsh plugins ###
 zinit wait lucid blockf light-mode for \
