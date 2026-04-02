@@ -1,3 +1,7 @@
 prefix=${NPM_DATA_DIR}
 cache=${NPM_CACHE_DIR}
 init-module=${NPM_CONFIG_DIR}/config/npm-init.js
+engine-strict=true
+ignore-scripts=true
+audit=true
+min-release-age=1
