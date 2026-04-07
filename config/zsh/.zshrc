@@ -140,10 +140,8 @@ bindkey "^N" down-line-or-search
 ### starship ###
 eval "$(starship init zsh)"
 
-### plugins ###
-zinit wait lucid null for \
-  atinit'source "$ZDOTDIR/.lazy.zshrc"' \
-  @'zdharma-continuum/null'
+### shell extensions ###
+source "$ZDOTDIR/.extensions.zsh"
 
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"

@@ -32,7 +32,7 @@ curl -fsSL https://raw.githubusercontent.com/thaitani/dotfiles/main/install.sh |
 ```
 .zshenv         # 環境変数・XDG・ツールパス定義
 .zshrc          # パス、関数、キーバインド、starship 初期化
-.lazy.zshrc     # zinit 経由で遅延ロードするプラグイン・エイリアス
+.extensions.zsh # プラグイン・エイリアス・補完設定
 .widgets.zsh    # fzf ベースのカスタムウィジェット (Ctrl+R 履歴, Ctrl+G ghq cd)
 ```
 
