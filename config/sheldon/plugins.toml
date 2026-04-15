@@ -4,7 +4,10 @@ shell = "zsh"
 github = "zsh-users/zsh-completions"
 
 [plugins.compinit]
-inline = "autoload -Uz compinit && compinit"
+inline = """
+autoload -Uz compinit
+compinit -d "$XDG_STATE_HOME/zsh/zcompdump"
+"""
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
