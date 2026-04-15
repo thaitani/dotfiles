@@ -12,12 +12,3 @@ else
   echo "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
-
-# zinit
-if [ -d "$XDG_DATA_HOME/zinit/bin" ]; then
-  echo "zinit is already installed."
-  git -C "$XDG_DATA_HOME/zinit/bin" pull
-else
-  echo "Installing zinit..."
-  git clone "https://github.com/zdharma-continuum/zinit" "$XDG_DATA_HOME/zinit/bin"
-fi

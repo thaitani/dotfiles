@@ -25,6 +25,7 @@ brew "mas"
 brew "navi"
 brew "shellcheck"
 brew "procs"
+brew "sheldon"
 brew "vim"
 brew "yq"
 

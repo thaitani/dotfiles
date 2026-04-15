@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 make all        # フルセットアップ (init → link → homebrew → mac)
-make init       # Xcode CLT + Homebrew + zinit インストール
+make init       # Xcode CLT + Homebrew インストール
 make link       # 全設定ファイルのシンボリックリンク作成
 make homebrew   # Brewfile からパッケージインストール
 make mac        # macOS システム設定の適用
@@ -31,8 +31,10 @@ curl -fsSL https://raw.githubusercontent.com/thaitani/dotfiles/main/install.sh |
 ### Zsh 設定の読み込み順
 ```
 .zshenv         # 環境変数・XDG・ツールパス定義
-.zshrc          # パス、関数、キーバインド、starship 初期化
-.extensions.zsh # プラグイン・エイリアス・補完設定
+.zshrc          # パス、関数、エイリアス、キーバインド、starship / sheldon 初期化
+.extensions.zsh # 補完 style と editor 設定
+.functions.zsh  # カスタム関数定義
+.aliases.zsh    # alias 定義
 .widgets.zsh    # fzf ベースのカスタムウィジェット (Ctrl+R 履歴, Ctrl+G ghq cd)
 ```
 

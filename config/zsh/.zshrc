@@ -3,17 +3,14 @@
 ### brew ###
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+### sheldon ###
+eval "$(sheldon source)"
+
 ### 1Password ###
 source ~/.config/op/plugins.sh
 
 ### direnv ###
 eval "$(direnv hook zsh)"
-
-### zinit ###
-typeset -gAH ZINIT
-ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
-ZINIT[ZCOMPDUMP_PATH]="$XDG_STATE_HOME/zcompdump"
-source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 
 ### path ###
 typeset -U path
@@ -93,8 +90,16 @@ bindkey '^N' __navi_search
 ### starship ###
 eval "$(starship init zsh)"
 
-### shell extensions ###
-source "$ZDOTDIR/.extensions.zsh"
+### completion styles ###
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+### Editor ###
+export EDITOR="vi"
+(( ${+commands[vim]} )) && EDITOR="vim"
+
+export GIT_EDITOR="$EDITOR"
 
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
