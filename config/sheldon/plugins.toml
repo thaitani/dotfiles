@@ -2,6 +2,7 @@ shell = "zsh"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
+apply = ["fpath"]
 
 [plugins.compinit]
 inline = """

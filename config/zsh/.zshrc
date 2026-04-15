@@ -3,9 +3,6 @@
 ### brew ###
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-### sheldon ###
-eval "$(sheldon source)"
-
 ### 1Password ###
 source ~/.config/op/plugins.sh
 
@@ -100,6 +97,11 @@ export EDITOR="vi"
 (( ${+commands[vim]} )) && EDITOR="vim"
 
 export GIT_EDITOR="$EDITOR"
+
+### sheldon ###
+if (( ${+commands[sheldon]} )); then
+  eval "$(sheldon source)"
+fi
 
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
