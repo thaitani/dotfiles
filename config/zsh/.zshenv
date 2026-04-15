@@ -44,3 +44,11 @@ export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 
 ### Android ###
 export ANDROID_HOME="$HOME/Library/Android/sdk"
+
+### asdf ###
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
+
+### navi ###
+export NAVI_PATH="$XDG_DATA_HOME/navi/"
+export NAVI_CONFIG="$XDG_CONFIG_HOME/navi/config.yaml"

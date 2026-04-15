@@ -63,5 +63,11 @@ __fzf_ghq_cd() {
   zle reset-prompt
 }
 
+__navi_search() {
+  LBUFFER="$(navi --print --query="$LBUFFER")"
+  zle reset-prompt
+}
+
 zle -N __fzf_history_selection
 zle -N __fzf_ghq_cd
+zle -N __navi_search

@@ -6,6 +6,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ### 1Password ###
 source ~/.config/op/plugins.sh
 
+### direnv ###
+eval "$(direnv hook zsh)"
+
 ### zinit ###
 typeset -gAH ZINIT
 ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
@@ -24,12 +27,9 @@ path=(
   "$ANDROID_HOME/platform-tools"(N-/)
   "$ANDROID_HOME/cmdline-tools/latest/bin"(N-/)
   "$ANDROID_HOME/emulator"(N-/)
+  "${ASDF_DATA_DIR:-$HOME/.asdf}/shims"(N-/)
   "$path[@]"
 )
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
 
 ### history ###
 export HISTFILE="$XDG_STATE_HOME/zsh_history"
@@ -108,34 +108,24 @@ git-sim() {
   docker run --rm -v $(pwd):/usr/src/git-sim git-sim "$@"
 }
 
+### mkdir and cd ###
+mkcd() {
+  command mkdir -p -- "$@" && builtin cd "${@[-1]:a}"
+}
+
+### aliases ###
+source "$ZDOTDIR/.aliases.zsh"
+
+### custom widgets ###
+source "$ZDOTDIR/.widgets.zsh"
+
 ### key bindings ###
 bindkey -v
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
-bindkey "^P" up-line-or-search
-bindkey "^N" down-line-or-search
-
-# ### VSCode以外 ###
-# if [ "$VSCODE_PID" = "" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
-#   ### tmux ###
-#   if [[ ! -n $TMUX && $- == *l* ]]; then
-#     # get the IDs
-#     ID="`tmux list-sessions`"
-#     if [[ -z "$ID" ]]; then
-#       tmux new-session
-#     fi
-#     create_new_session="Create New Session"
-#     ID="$ID\n${create_new_session}:"
-#     ID="`echo $ID | fzf | cut -d: -f1`"
-#     if [[ "$ID" = "${create_new_session}" ]]; then
-#       tmux new-session
-#     elif [[ -n "$ID" ]]; then
-#       tmux attach-session -t "$ID"
-#     else
-#       :  # Start terminal normally
-#     fi
-#   fi
-# fi
+bindkey '^R' __fzf_history_selection
+bindkey '^G' __fzf_ghq_cd
+bindkey '^N' __navi_search
 
 ### starship ###
 eval "$(starship init zsh)"
