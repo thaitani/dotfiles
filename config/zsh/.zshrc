@@ -1,13 +1,8 @@
 # Kiro CLI pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+
 ### brew ###
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-### 1Password ###
-source ~/.config/op/plugins.sh
-
-### direnv ###
-eval "$(direnv hook zsh)"
 
 ### path ###
 typeset -U path
@@ -30,6 +25,9 @@ export HISTFILE="$XDG_STATE_HOME/zsh_history"
 export LESSHISTFILE="$XDG_STATE_HOME/less_history"
 export HISTSIZE=12000
 export SAVEHIST=10000
+
+### 1Password ###
+source ~/.config/op/plugins.sh
 
 # history除外設定
 zshaddhistory() {
@@ -84,9 +82,6 @@ bindkey '^R' __fzf_history_selection
 bindkey '^G' __fzf_ghq_cd
 bindkey '^N' __navi_search
 
-### starship ###
-eval "$(starship init zsh)"
-
 ### completion styles ###
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -102,6 +97,12 @@ export GIT_EDITOR="$EDITOR"
 if (( ${+commands[sheldon]} )); then
   eval "$(sheldon source)"
 fi
+
+### direnv ###
+eval "$(direnv hook zsh)"
+
+### starship ###
+eval "$(starship init zsh)"
 
 # Kiro CLI post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
